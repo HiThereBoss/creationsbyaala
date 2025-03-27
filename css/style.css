@@ -46,8 +46,8 @@ header{
 #big-text{
     font-family: 'Regulus';
     font-size: 50px;
-    margin-left: 30px;
-    color: var(--color-primary);
+    margin-left: 330px;
+    color: black;
 }
 .first-nav{
     margin-left: 30px;
