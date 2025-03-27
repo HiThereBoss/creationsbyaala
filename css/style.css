@@ -2,7 +2,15 @@
     --color-primary: #FFC4EB;
     --color-secondary: #FFE4FA;
     --color-tertiary: #F1DEDC;
+    --color-tertiary-transparent: #f1dedc25;
     --color-quaternary: white;
+    --color-quaternary-transparent: #ffffff25;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 @font-face {
