@@ -1,90 +1,39 @@
 body{
     font-family: 'Arial', sans-serif;
     margin: 20px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }
 
-.receipt-contact{
-    max-width: 600px;
+.receipt.container{
+    width: 100%;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border: 1px solid #e1e1e1;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    width: 300px;
 }
 
-.receipt-contact h1{
-    text-align: center;
-    margin-bottom: 20px;
+h2{
+    margin-bottom: 15px;
 }
 
-.receipt-contact p{
-    margin-bottom: 10px;
-}   
-.receipt-contact .contact-info{
-    display: flex;
-    justify-content: space-between;
-}
-
-.receipt-contact .contact-info span{
-    margin-right: 10px;
-}
-
-.receipt-contact .contact-info .phone{
-    font-size: 20px;
-}
-
-.receipt-contact .contact-info .email{
-    font-size: 16px;
-}
-
-.receipt-contact .contact-info .address{
-    font-size: 14px;
-}   
-
-.receipt-contact .contact-info .date{
-    font-size: 14px;
-}
-
-.receipt-contact .contact-info .time{
-    font-size: 14px;
-}
-
-.receipt-contact .items{
-    margin-top: 30px;
-}
-
-.receipt-contact .items table{
+button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #bdbbba;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
     width: 100%;
-    border-collapse: collapse;
 }
 
-.receipt-contact .items table th,
-.receipt-contact .items table td{
-    padding: 10px;
-    border: 1px solid #ccc;
-    text-align: left;
-}   
-.receipt-contact .items table th{
-    background-color: #f2f2f2;
+button:hover {
+    background-color: #72706e;
 }
 
-.receipt-contact .items table tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
 
-.receipt-contact .total{
-    margin-top: 30px;
-    text-align: right;
-}
-
-.receipt-contact .total span{
-    font-weight: bold;
-}
-
-.receipt-contact .total .amount{
-    font-size: 24px;
-}
-
-.receipt-contact .total .currency{
-    font-size: 18px;
-}

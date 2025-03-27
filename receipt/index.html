@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Receipt</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/receipt.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/receipt.css">
 </head>
 <body>
     <nav>
@@ -19,44 +19,26 @@
     <div class="receipt-container" id="receipt">
         <h2>Order Receipt</h2>
         <div id="receipt-details">
-            <div id="order-number">Order Number:748</div>
-            <div id="order-date">Order Date: 01/04/2025</div>
-            <div id="customer-name">Customer: John Harrison</div>
-            <div id="customer-phone">Phone: 123-456-7890</div>
-            <div id="customer-address">Address: 123 Main St West, Anytown, USA</div>
-            <div id="order-items">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Item</th>
-                            <th>Price</th>
-                        </tr>
-                        <tr>
-                            <td>Item 1</td>
-                            <td>$10.00</td>
-                        </tr>
-                        <tr>
-                            <td>Item 2</td>
-                            <td>$15.00</td>
-                        </tr>
-
-                        <tr>
-                            <td>Item 3</td>
-                            <td>$20.00</td>
-                        </tr> 
-                    </thead>
-        </div>
+            <div id="order-number"></div>
+            <div id="order-date"></div>
+            <div id="customer-name"></div>
+            <div id="customer-phone"></div>
+            <div id="customer-address"></div>
     </div>
-    <div class="total" id="subtotal">Subtotal: $212.00</div>
-    <div class="total" id="tax">Tax: $30.25</div>
-    <div class="total" id="tip">Tip: $10.00</div>
-    <div class="total" id="total">Total: $252.25</div>
 
-    <div id="buttons">
-        <button id="print">Print</button>
-        <button id="back">Back</button>
+    <h3>Items Ordered:</h3>
+    <div id="order-items"></div>
+     
+    <p><strong>Subtotal:</strong> <span id="subtotal"></span></p>
+    <p><strong>Tax (10%):</strong> <span id="tax"></span></p>
+    <p><strong>Tip:</strong> <span id="tip"></span></p>
+    <p><strong>Total:</strong> <span id="total"></span></p>
+    
+    <button onclick="printReceipt()">Print Receipt</button>
+    <button onclick="saveAsPDF()">Save as PDF</button>
+    <button onclick="saveAsImage()">Save as PNG</button>
+    <a href="index.html"><button>Return to Main Page</button></a>   
     </div>
-    <button class="save-btn" onclick="saveReceipt()">Save</button>
     
     <script src="../js/receipt.js"></script>
 </body>
