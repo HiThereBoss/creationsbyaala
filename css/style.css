@@ -2,8 +2,21 @@
     --color-primary: #FFC4EB;
     --color-secondary: #FFE4FA;
     --color-tertiary: #F1DEDC;
+    --color-quaternary: white;
 }
 
 body {
-    color: var(--color-primary)
+    color: var(--color-primary);
+    background-color: var(--color-tertiary);
 }
+
+
+.first-nav a {
+    color: black;
+    margin-right: 20px;
+    margin-left: 50%;
+    display: flex;
+}
+
+
+
