@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/receipt.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/order.html">Order</a></li>
+            <li><a href="/history.html">Order History</a></li>
+        </ul>   
+    </nav>
+
+    <div class="receipt-container" id="receipt">
+        <h2>Order Receipt</h2>
+        <div id="receipt-details">
+            <div id="order-number">Order Number:748</div>
+            <div id="order-date">Order Date: 01/04/2025</div>
+            <div id="customer-name">Customer: John Harrison</div>
+            <div id="customer-phone">Phone: 123-456-7890</div>
+            <div id="customer-address">Address: 123 Main St West, Anytown, USA</div>
+            <div id="order-items">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Price</th>
+                        </tr>
+                        <tr>
+                            <td>Item 1</td>
+                            <td>$10.00</td>
+                        </tr>
+                        <tr>
+                            <td>Item 2</td>
+                            <td>$15.00</td>
+                        </tr>
+
+                        <tr>
+                            <td>Item 3</td>
+                            <td>$20.00</td>
+                        </tr> 
+                    </thead>
+        </div>
+    </div>
+    <div class="total" id="subtotal">Subtotal: $212.00</div>
+    <div class="total" id="tax">Tax: $30.25</div>
+    <div class="total" id="tip">Tip: $10.00</div>
+    <div class="total" id="total">Total: $252.25</div>
+
+    <div id="buttons">
+        <button id="print">Print</button>
+        <button id="back">Back</button>
+    </div>
+    <button class="save-btn" onclick="saveReceipt()">Save</button>
+    
+    <script src="../js/receipt.js"></script>
+</body>
+</html>
