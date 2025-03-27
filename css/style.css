@@ -5,18 +5,71 @@
     --color-quaternary: white;
 }
 
+@font-face {
+    font-family: 'Regulus'; /* Name of the font */
+    src: url('../assets/fonts/regulus-black.ttf') format('truetype'); /* Path to the font file */
+}
+
 body {
     color: var(--color-primary);
     background-color: var(--color-tertiary);
+}
+
+header{
+    padding: 30px;
+   
+}
+
+#header-container{
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+}
+
+
+.logo img{
+    width: 80px;
 }
 
 
 .first-nav a {
     color: black;
     margin-right: 20px;
-    margin-left: 50%;
-    display: flex;
+    margin-left: 0%;
+    text-decoration: none;
+    font-size: 15px;
+
+    
 }
+
+
+#big-text{
+    font-family: 'Regulus';
+    font-size: 50px;
+    margin-left: 30px;
+    color: var(--color-primary);
+}
+.first-nav{
+    margin-left: 30px;
+}
+
+.second-nav a {
+    color: black;
+    margin-right: 15px;
+    text-decoration: none;
+    font-size: 15px;
+    
+}
+
+.second-nav{
+    position: absolute;
+    right: 100px;
+    margin-right: 20px;
+}
+
+
+
+
 
 
 
