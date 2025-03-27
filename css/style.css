@@ -7,6 +7,12 @@
     --color-quaternary-transparent: #ffffff25;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 @font-face {
     font-family: 'Regulus'; /* Name of the font */
     src: url('../assets/fonts/regulus-black.ttf') format('truetype'); /* Path to the font file */
