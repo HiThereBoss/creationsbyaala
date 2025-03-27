@@ -1,3 +1,9 @@
+:root {
+    --color-primary: #FFC4EB;
+    --color-secondary: #FFE4FA;
+    --color-tertiary: #F1DEDC;
+}
 
-
-/*#FFC4EB #FFE4FA #F1DEDC
+body {
+    color: var(--color-primary)
+}
