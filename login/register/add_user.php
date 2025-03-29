@@ -1,0 +1,47 @@
+<?php
+
+header('Content-Type: application/json');
+
+include "../../connect.php";
+session_start();
+
+$userid = filter_input(INPUT_GET, 'userid');
+$password = filter_input(INPUT_GET, 'password');
+$remember = filter_input(INPUT_GET, 'remember', FILTER_VALIDATE_BOOLEAN);
+
+$success = false;
+$message = "";
+
+if ($userid && $password) {
+    $stmt = $dbh->prepare("INSERT INTO users (userid, password) VALUES (:userid, :password)");
+    $stmt->bindParam(':userid', $userid);
+    $stmt->bindParam(':password', password_hash($password, PASSWORD_BCRYPT));
+    $stmt->execute();
+    
+    if ($stmt->rowCount() > 0) {
+        // User created successfully
+        $success = true;
+        $message = "User registered successfully.";
+        $_SESSION['userid'] = $userid;
+        
+        if ($remember) {
+            setcookie('userid', $userid, time() + (86400 * 30), "/"); // 86400 = 1 day
+        }
+    } else {
+        // Failed to create user
+        $success = false;
+        $message = "Failed to register user. Please try again.";
+    }
+}
+else {
+    $success = false;
+    $message = "Please enter a valid username and password.";
+}
+
+echo json_encode([
+    'success' => $success,
+    'message' => $message,
+    'remember' => $remember
+]);
+
+?>
