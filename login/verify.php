@@ -17,12 +17,10 @@ if ($userid && $password) {
     $stmt->execute();
     
     if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        // User exists, now check password
-        $password = password_hash($password, PASSWORD_BCRYPT);
 
         if (password_verify($password, $row['password'])) {
             // Password is correct
-            $login = true;
+            $success = true;
             $_SESSION['userid'] = $userid;
             
             if ($remember) {

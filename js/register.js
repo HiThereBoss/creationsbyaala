@@ -15,16 +15,14 @@ window.onload = () => {
             return;
         }
 
-        let url = "add_user.php?userid=" + username + "&password=" + password + "&rememberMe=" + rememberMe;
+        let url = "add_user.php?userid=" + username + "&password=" + password + "&remember=" + rememberMe;
 
         fetch(url)
-            .then(response => {
-                console.log(response)
-                return response.json()
-            })
+            .then(response => response.json())
             .then(data => {
+                console.log(data)
                 if (data.success) {
-                    window.location.href = ""; // Redirect to home page on success
+                    window.location.href = "../../"; // Redirect to home page on success
                 } else {
                     errorMessage.textContent = data.message; // Show error message
                 }

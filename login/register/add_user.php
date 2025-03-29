@@ -15,7 +15,8 @@ $message = "";
 if ($userid && $password) {
     $stmt = $dbh->prepare("INSERT INTO users (userid, password) VALUES (:userid, :password)");
     $stmt->bindParam(':userid', $userid);
-    $stmt->bindParam(':password', password_hash($password, PASSWORD_BCRYPT));
+    $password = password_hash($password, PASSWORD_BCRYPT); // Hash the password
+    $stmt->bindParam(':password', $password);
     $stmt->execute();
     
     if ($stmt->rowCount() > 0) {

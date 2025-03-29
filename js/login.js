@@ -9,13 +9,14 @@ window.onload = () => {
         const password = document.getElementById("password").value;
         const rememberMe = document.getElementById("remember-me").checked;
 
-        let url = "verify.php?username=" + username + "&password=" + password + "&rememberMe=" + rememberMe;
+        let url = "verify.php?userid=" + username + "&password=" + password + "&remember=" + rememberMe;
 
         fetch(url)
             .then(response => response.json())
             .then(data => {
+                console.log(data)
                 if (data.success) {
-                    window.location.href = ""; // Redirect to home page on success
+                    window.location.href = "../../"; // Redirect to home page on success
                 } else {
                     errorMessage.textContent = data.message; // Show error message
                 }
