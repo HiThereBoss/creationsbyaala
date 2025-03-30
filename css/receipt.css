@@ -1,0 +1,39 @@
+body{
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.receipt.container{
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    width: 300px;
+}
+
+h2{
+    margin-bottom: 15px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #bdbbba;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #72706e;
+}
+
+
