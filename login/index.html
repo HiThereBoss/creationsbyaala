@@ -1,30 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/login.css" />
     <script src="../js/login.js"></script>
-</head>
-<body>
+  </head>
+  <body>
+    <header>
+      <div id="header-container">
+        <div class="logo-container">
+          <nav class="logo">
+            <img src="../assets/images/cake.png" alt="" />
+          </nav>
+        </div>
+
+        <nav class="first-nav">
+          <a href="/">home</a>
+          <a href="/">cakes & bouquets</a>
+        </nav>
+
+        <nav class="second-nav">
+          <a href="/">orders</a>
+        </nav>
+      </div>
+    </header>
     <form id="login-form">
-        <h2>Login</h2>
-        <div>
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <label for="remember-me">Remember Me:</label>
-            <input type="checkbox" id="remember-me" name="remember-me">
-            <h3 id="error-message"></h3>
-        </div>
-        <button type="submit">Login</button>
-        <div>
-            <p>Don't have an account?</p>
-            <a href="./register">Register</a>
-        </div>
+      <h2>Login</h2>
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+        <label for="remember-me">Remember Me:</label>
+        <input type="checkbox" id="remember-me" name="remember-me" />
+        <h3 id="error-message"></h3>
+      </div>
+      <button type="submit">Login</button>
+      <div>
+        <p>Don't have an account?</p>
+        <a href="./register">Register</a>
+      </div>
     </form>
-</body>
+  </body>
 </html>
