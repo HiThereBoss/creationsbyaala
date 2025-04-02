@@ -1,6 +1,12 @@
 <?php
 // Start the session
 session_start();
+
+// Check if the user is already logged in, redirect to home if true
+if (isset($_SESSION['userid'])) {
+    header("Location: ../");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +16,7 @@ session_start();
     <title>Login</title>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/login.css" />
-    <script src="../js/login.js"></script>
+    
   </head>
   <body>
     <header id="header-container">
@@ -28,9 +34,12 @@ session_start();
 
         <div id="right-nav">
           <!-- Logged in state handling -->
+          <?php if (isset($_SESSION['userid']) && $_SESSION['userid'] === 'admin'): ?>
+              <a href="../admin">admin</a>
+          <?php endif; ?>
           <?php if (isset($_SESSION['userid'])): ?>
             <a href="#">orders</a>
-            <a href="#">profile</a>
+            <a href="../logout">logout</a>
           <?php else: ?>
             <a href="../login">login</a>
           <?php endif; ?>
@@ -53,7 +62,7 @@ session_start();
         </div>
       </nav>
     </header>
-    <form id="login-form">
+    <form id="login-form" onsubmit="return null;">
       <h2>Login</h2>
       <div>
         <label for="username">Username:</label>
@@ -71,4 +80,5 @@ session_start();
       </div>
     </form>
   </body>
+  <script src="../js/login.js"></script>
 </html>

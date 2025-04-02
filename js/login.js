@@ -16,7 +16,7 @@ window.onload = () => {
             .then(data => {
                 console.log(data)
                 if (data.success) {
-                    window.location.href = "../../"; // Redirect to home page on success
+                    window.location.href = "../"; // Redirect to home page on success
                 } else {
                     errorMessage.textContent = data.message; // Show error message
                 }
