@@ -36,7 +36,7 @@ if (isset($_SESSION['userid'])) {
 
             <div id="right-nav">
                 <!-- Logged in state handling -->
-                <?php if (isset($_SESSION['userid']) && $_SESSION['userid'] === 'admin'): ?>
+                <?php if (isset($_SESSION['access']) && $_SESSION['access'] === 'admin'): ?>
                     <a href="../../admin">admin</a>
                 <?php endif; ?>
                 <?php if (isset($_SESSION['userid'])): ?>

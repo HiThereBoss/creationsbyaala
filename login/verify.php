@@ -22,6 +22,7 @@ if ($userid && $password) {
             // Password is correct
             $success = true;
             $_SESSION['userid'] = $userid;
+            $_SESSION['access'] = $row['role'];
             
             if ($remember) {
                 setcookie('userid', $userid, time() + (86400 * 30), "/"); // 86400 = 1 day

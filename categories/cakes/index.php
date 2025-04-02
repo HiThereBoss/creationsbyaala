@@ -44,7 +44,7 @@ if (!$products) {
 
       <div id="right-nav">
         <!-- Logged in state handling -->
-        <?php if (isset($_SESSION['userid']) && $_SESSION['userid'] === 'admin'): ?>
+        <?php if (isset($_SESSION['access']) && $_SESSION['access'] === 'admin'): ?>
           <a href="../../admin">admin</a>
         <?php endif; ?>
         <?php if (isset($_SESSION['userid'])): ?>
@@ -75,7 +75,7 @@ if (!$products) {
       <?php
 
       foreach ($products as $product) {
-        echo "<div class='product'>";
+        echo "<div class='product' id='{$product['product_id']}'>";
         echo "<div class='image-container'>";
         echo "<img src='../../assets/images/cake.png' alt='Cake' />";
         echo "</div>";

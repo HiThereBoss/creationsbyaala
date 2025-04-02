@@ -59,7 +59,7 @@ session_start();
             <h2>Shopping Cart</h2>
             <div id="cart-items-list">
                 <!-- Example cart item structure -->
-                <div class="cart-item">
+                <!-- <div class="cart-item">
                     <img src="../assets/images/cake.png" alt="Cake Image">
                     <div class="item-content">
                         <div class="item-details">
@@ -70,40 +70,15 @@ session_start();
                             <button class="remove-item">Remove</button>
                         </div>
                     </div>
-                </div>
-                <div class="cart-item">
-                    <img src="../assets/images/cake.png" alt="Cake Image">
-                    <div class="item-content">
-                        <div class="item-details">
-                            <h3>Cake Name</h3>
-                            <p>Price: $20.00</p>
-                        </div>
-                        <div class="item-actions">
-                            <button class="remove-item">Remove</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="cart-item">
-                    <img src="../assets/images/cake.png" alt="Cake Image">
-                    <div class="item-content">
-                        <div class="item-details">
-                            <h3>Cake Name</h3>
-                            <p>Price: $20.00</p>
-                        </div>
-                        <div class="item-actions">
-                            <button class="remove-item">Remove</button>
-                        </div>
-                    </div>
-                </div>
+                </div> -->
             </div>
         </div>
         <div id="cart-right">
             <div id="order-summary">
                 <h2>Order Summary</h2>
-                <p>Subtotal: $60.00</p>
-                <p>Tax: $5.00</p>
-                <p>Shipping: $5.00</p>
-                <p>Total: $70.00</p>
+                <p id="subtotal">Subtotal: $60.00</p>
+                <p id="tax">Tax: $5.00</p>
+                <p id="total">Total: $70.00</p>
                 <button id="checkout-button">Checkout</button>
             </div>
         </div>
