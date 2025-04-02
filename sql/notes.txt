@@ -1,0 +1,14 @@
+Here is a list of all of the test data I have made for each table.
+
+
+USERS:
+- userid: admin   password: admin123   role: admin
+- userid: test    password: test       role: customer
+
+PRODUCTS:
+- product_id: 1   name: Strawberry Cake
+- product_id: 2   name: Chocolate Cake
+
+PRODUCT IMAGES:
+- image_id: 1    product_id: 1  image_path: 'assets/images/product_images/cake.png'
+- image_id: 2    product_id: 1  image_path: 'assets/images/product_images/cake2.png'

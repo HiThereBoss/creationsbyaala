@@ -1,46 +1,59 @@
 <?php
+
+include '../../connect.php';
+
 session_start(); // Start the session
+
+$query = "SELECT * FROM products WHERE category = 'cake'";
+$stmt = $dbh->prepare($query);
+$stmt->execute();
+
+$products = $stmt->fetchAll();
+
+if (!$products) {
+    echo "<h1>No products found</h1>";
+    exit;
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/style.css" />
-  <script
-    type="module"
-    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-  <title>CreationsByAala</title>
+  <title>Cakes</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/categories.css" />
+  <script src="../../js/categories.js"></script>
 </head>
 
 <body>
   <header id="header-container">
     <div class="logo-container">
       <nav class="logo">
-        <img src="./assets/images/cake.png" alt="" />
+        <img src="../../assets/images/cake.png" alt="" />
       </nav>
     </div>
 
     <nav class="header-nav">
       <div id="left-nav">
-        <a href="./">home</a>
-        <a href="./categories/cakes/">cakes & bouquets</a>
+        <a href="/">home</a>
+        <a href="/">cakes & bouquets</a>
       </div>
 
       <div id="right-nav">
         <!-- Logged in state handling -->
         <?php if (isset($_SESSION['userid']) && $_SESSION['userid'] === 'admin'): ?>
-          <a href="./admin">admin</a>
+          <a href="../../admin">admin</a>
         <?php endif; ?>
         <?php if (isset($_SESSION['userid'])): ?>
           <a href="#">orders</a>
-          <a href="./logout">logout</a>
+          <a href="../../logout">logout</a>
         <?php else: ?>
-          <a href="./login">login</a>
+          <a href="../../login">login</a>
         <?php endif; ?>
-        <a id="cart-icon-container" href="./cart">
-          <svg
+        <a id="cart-icon-container" href="../../cart"><svg
             id="cart-icon"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 32 32"
@@ -57,15 +70,24 @@ session_start(); // Start the session
     </nav>
   </header>
 
-  <div id="hero-container">
-    <model-viewer
-      src="assets/images/Heartfelt_Delight_0330061924_texture.glb"
-      auto-rotate
-      rotation-per-second="30deg"
-      max-field-of-view="60deg"></model-viewer>
+  <div class="main-container">
+    <div class="products-container">
+      <?php
 
-    <div id="creations">
-      <h1>CreationsByAala©</h1>
+      foreach ($products as $product) {
+        echo "<div class='product'>";
+        echo "<div class='image-container'>";
+        echo "<img src='../../assets/images/cake.png' alt='Cake' />";
+        echo "</div>";
+        echo "<div class='info-container'>";
+        echo "<h3>{$product['name']}</h3>";
+        echo "<p>{$product['quick_description']}</p>";
+        echo "</div>";
+        echo "</div>";
+      }
+
+      ?>
+
     </div>
   </div>
 </body>
