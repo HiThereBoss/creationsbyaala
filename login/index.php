@@ -28,8 +28,8 @@ if (isset($_SESSION['userid'])) {
 
       <nav class="header-nav">
         <div id="left-nav">
-          <a href="/">home</a>
-          <a href="/">cakes & bouquets</a>
+          <a href="../">home</a>
+          <a href="../categories/cakes/">cakes & bouquets</a>
         </div>
 
         <div id="right-nav">
@@ -62,7 +62,7 @@ if (isset($_SESSION['userid'])) {
         </div>
       </nav>
     </header>
-    <form id="login-form" onsubmit="return null;">
+    <form id="login-form">
       <h2>Login</h2>
       <div>
         <label for="username">Username:</label>

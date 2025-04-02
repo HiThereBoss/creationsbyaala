@@ -38,8 +38,8 @@ if (!$products) {
 
     <nav class="header-nav">
       <div id="left-nav">
-        <a href="/">home</a>
-        <a href="/">cakes & bouquets</a>
+        <a href="../../">home</a>
+        <a href="./">cakes & bouquets</a>
       </div>
 
       <div id="right-nav">

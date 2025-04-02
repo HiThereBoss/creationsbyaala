@@ -1,5 +1,12 @@
 <?php
+// Connect to session
 session_start();
+
+// Check if the user is already logged in, redirect to home if true
+if (isset($_SESSION['userid'])) {
+    header("Location: ../../");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,36 +14,36 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/cart.css">
-    <script src="../js/cart.js"></script>
+    <title>Register</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/">
+    <script src="../../js/register.js"></script>
 </head>
 
 <body>
     <header id="header-container">
         <div class="logo-container">
             <nav class="logo">
-                <img src="../assets/images/cake.png" alt="" />
+                <img src="../../assets/images/cake.png" alt="" />
             </nav>
         </div>
 
         <nav class="header-nav">
             <div id="left-nav">
-                <a href="../">home</a>
-                <a href="../categories/cakes/">cakes & bouquets</a>
+                <a href="../../">home</a>
+                <a href="../../categories/cakes/">cakes & bouquets</a>
             </div>
 
             <div id="right-nav">
                 <!-- Logged in state handling -->
                 <?php if (isset($_SESSION['userid']) && $_SESSION['userid'] === 'admin'): ?>
-                    <a href="../admin">admin</a>
+                    <a href="../../admin">admin</a>
                 <?php endif; ?>
                 <?php if (isset($_SESSION['userid'])): ?>
                     <a href="#">orders</a>
-                    <a href="../logout">logout</a>
+                    <a href="../../logout">logout</a>
                 <?php else: ?>
-                    <a href="../login">login</a>
+                    <a href="../">login</a>
                 <?php endif; ?>
                 <a id="cart-icon-container" href="../cart"><svg
                         id="cart-icon"
@@ -54,59 +61,25 @@ session_start();
             </div>
         </nav>
     </header>
-    <div id="cart-container">
-        <div id="cart-left">
-            <h2>Shopping Cart</h2>
-            <div id="cart-items-list">
-                <!-- Example cart item structure -->
-                <div class="cart-item">
-                    <img src="../assets/images/cake.png" alt="Cake Image">
-                    <div class="item-content">
-                        <div class="item-details">
-                            <h3>Cake Name</h3>
-                            <p>Price: $20.00</p>
-                        </div>
-                        <div class="item-actions">
-                            <button class="remove-item">Remove</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="cart-item">
-                    <img src="../assets/images/cake.png" alt="Cake Image">
-                    <div class="item-content">
-                        <div class="item-details">
-                            <h3>Cake Name</h3>
-                            <p>Price: $20.00</p>
-                        </div>
-                        <div class="item-actions">
-                            <button class="remove-item">Remove</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="cart-item">
-                    <img src="../assets/images/cake.png" alt="Cake Image">
-                    <div class="item-content">
-                        <div class="item-details">
-                            <h3>Cake Name</h3>
-                            <p>Price: $20.00</p>
-                        </div>
-                        <div class="item-actions">
-                            <button class="remove-item">Remove</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <form id="register-form">
+        <h2>Register</h2>
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <label for="verify-password">Verify Password:</label>
+            <input type="password" id="verify-password" required>
+            <label for="remember-me">Remember Me:</label>
+            <input type="checkbox" id="remember-me">
+            <h3 id="error-message"></h3>
         </div>
-        <div id="cart-right">
-            <div id="order-summary">
-                <h2>Order Summary</h2>
-                <p>Subtotal: $60.00</p>
-                <p>Tax: $5.00</p>
-                <p>Shipping: $5.00</p>
-                <p>Total: $70.00</p>
-                <button id="checkout-button">Checkout</button>
-            </div>
+        <button type="submit">Register</button>
+        <div>
+            <p>Already have an account?</p>
+            <a href="../">Login</a>
         </div>
+    </form>
 </body>
 
 </html>
