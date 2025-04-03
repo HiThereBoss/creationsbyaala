@@ -1,5 +1,5 @@
 window.onload = () => {
-    const registerForm = document.getElementById("register-form");
+    const registerForm = document.getElementById("login-form");
     const errorMessage = document.getElementById("error-message");
 
     registerForm.addEventListener("submit", (event) => {
