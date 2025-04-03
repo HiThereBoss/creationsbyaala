@@ -13,7 +13,8 @@ window.onload = () => {
         const id = product.id; // Product ID is stored in the id attribute
 
         // Temporary for testing, should be done in the popup window
-        addToCart(id);
+        
+        togglePopup(id); // Show the popup window when clicked
 
         // Popup logic, use AJAX to fetch the product details
     });
@@ -21,6 +22,16 @@ window.onload = () => {
 
   });
 };
+
+function togglePopup(id){
+  const popupForm = document.getElementById("form-container");
+  popupForm.style.display = "flex";
+
+  const addToCartBtn = document.getElementById("add-to-cart");
+  addToCartBtn.addEventListener("click", () => {
+    addToCart(id); // Call the function to add the product to the cart
+  });
+}
 
 function addToCart(productId) {
   // Logic to add the product to the cart

@@ -90,6 +90,22 @@ if (!$products) {
 
     </div>
   </div>
+
+  <div id = "form-container" style = "display: none;">
+    
+      <div id = "cake-container">
+        <img src="../../assets/images/cake.png" alt="Cake" />
+      </div>
+      
+
+      <div id = "text-container">
+          <h3>Product Name</h3>
+          <p>Product Description</p>
+          <p>Price: $XX.XX</p>
+          <button id="add-to-cart">Add to Cart</button>
+      </div>
+
+  </div>
 </body>
 
 </html>
