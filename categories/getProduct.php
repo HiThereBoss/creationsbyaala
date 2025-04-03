@@ -1,10 +1,10 @@
 <?php
 
-    include '../../connect.php';
+    include '../connect.php';
     $productId = filter_input(INPUT_GET, 'productId', FILTER_VALIDATE_INT);
 
     if($productId) {
-        $query = "SELECT * FROM products WHERE id = :productId";
+        $query = "SELECT * FROM products WHERE product_id = :productId";
         $stmt = $dbh->prepare($query);
         $stmt->bindParam(':productId', $productId);
         $stmt->execute();
