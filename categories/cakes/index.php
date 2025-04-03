@@ -105,6 +105,9 @@ if (!$products) {
           <button id="add-to-cart">Add to Cart</button>
       </div>
 
+      <div id = "close-container">
+        <button id = "close-button">x</button>
+      </div>
   </div>
 </body>
 
