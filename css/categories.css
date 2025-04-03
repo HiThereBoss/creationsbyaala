@@ -115,4 +115,21 @@
     cursor: pointer;
 }
 
+#close-button {
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    background-color: var(--color-primary);
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+    color: black;
+    cursor: pointer;
+}
+
+#close-button:hover {
+    background-color: #CA3433;
+    color: var(--color-primary);
+}
 

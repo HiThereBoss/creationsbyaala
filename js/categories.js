@@ -33,6 +33,11 @@ function togglePopup(id){
     addToCart(id); // Call the function to add the product to the cart
   });
 
+  const closeBtn = document.getElementById("close-button");
+  closeBtn.addEventListener("click", () => {
+    popupForm.style.display = "none"; // Hide the popup when the close button is clicked
+  });
+
   const url = '../getProduct.php?productId='+id;
   fetch(url)
   .then(response => response.json())
