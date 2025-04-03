@@ -99,9 +99,9 @@ if (!$products) {
       
 
       <div id = "text-container">
-          <h3>Product Name</h3>
-          <p>Product Description</p>
-          <p>Price: $XX.XX</p>
+          <h3 id = "product-name">Product Name</h3>
+          <p id = "product-description">Product Description</p>
+          <p id = "product-price">Price: $XX.XX</p>
           <button id="add-to-cart">Add to Cart</button>
       </div>
 

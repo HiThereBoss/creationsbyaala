@@ -32,6 +32,20 @@ function togglePopup(id){
     addToCartBtn.removeEventListener("click", arguments.callee);
     addToCart(id); // Call the function to add the product to the cart
   });
+
+  const url = '../getProduct.php?id='+id;
+  fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    // Populate the popup with product details
+    document.getElementById("product-name").innerText = data.name;
+    document.getElementById("product-price").innerText = "the price: $" + data.price;
+    document.getElementById("product-description").innerText = data.description;
+  })
+  .catch(error => {
+    console.error('Error fetching product details:', error);
+  });
 }
 
 function addToCart(productId) {
