@@ -16,7 +16,7 @@ if (isset($_SESSION['userid'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="../../css/">
+    <link rel="stylesheet" href="../../css/login.css">
     <script src="../../js/register.js"></script>
 </head>
 
@@ -61,20 +61,25 @@ if (isset($_SESSION['userid'])) {
             </div>
         </nav>
     </header>
-    <form id="register-form">
+    <form id="login-form">
         <h2>Register</h2>
-        <div>
+        <div id="login-input-container">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
             <label for="verify-password">Verify Password:</label>
             <input type="password" id="verify-password" required>
-            <label for="remember-me">Remember Me:</label>
-            <input type="checkbox" id="remember-me">
+            <div id="remember-container">
+                <label for="remember-me">Remember Me:</label>
+                <label class="checkbox-container">
+                    <input type="checkbox" id="remember-me" name="remember-me" />
+                    <div class="checkmark"></div>
+                </label>
+            </div>
             <h3 id="error-message"></h3>
         </div>
-        <button type="submit">Register</button>
+        <button type="submit" id="login-button">Register</button>
         <div>
             <p>Already have an account?</p>
             <a href="../">Login</a>
