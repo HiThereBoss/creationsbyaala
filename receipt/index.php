@@ -144,8 +144,10 @@ if ($ok) {
         <p><strong>Tip:</strong> <span id="total"><?php echo "$" . ($total - $tax - $subtotal); ?></span></p>
         <p><strong>Total:</strong> <span id="total"><?php echo "$$total"; ?></span></p>
 
-        <button onclick="printReceipt(<?php echo $orderid ?>)">Print Receipt</button>
-        <a href="../"><button>Return to Main Page</button></a>
+        <button onclick="printReceipt()">Print Receipt</button>
+        <button onclick="saveAsPDF()">Save as PDF</button>
+        <button onclick="saveAsImage()">Save as PNG</button>
+        <a href="index.html"><button>Return to Main Page</button></a>
     </div>
 
     <script src="../js/receipt.js"></script>
