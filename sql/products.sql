@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2025 at 06:41 AM
+-- Generation Time: Apr 03, 2025 at 09:55 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -32,7 +32,7 @@ CREATE TABLE `products` (
   `name` varchar(50) NOT NULL,
   `category` varchar(10) NOT NULL,
   `availability` tinyint(1) NOT NULL DEFAULT 1,
-  `description` text NOT NULL DEFAULT '-',
+  `description` text NOT NULL,
   `quick_description` text NOT NULL,
   `price` decimal(5,2) NOT NULL DEFAULT 0.00,
   `processing_time` time NOT NULL DEFAULT '24:00:00'
