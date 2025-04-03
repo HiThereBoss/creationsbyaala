@@ -33,7 +33,7 @@ function togglePopup(id){
     addToCart(id); // Call the function to add the product to the cart
   });
 
-  const url = '../getProduct.php?id='+id;
+  const url = '../getProduct.php?productId='+id;
   fetch(url)
   .then(response => response.json())
   .then(data => {
