@@ -29,6 +29,7 @@ function togglePopup(id){
 
   const addToCartBtn = document.getElementById("add-to-cart");
   addToCartBtn.addEventListener("click", () => {
+    addToCartBtn.removeEventListener("click", arguments.callee);
     addToCart(id); // Call the function to add the product to the cart
   });
 }
