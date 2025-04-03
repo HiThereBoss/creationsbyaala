@@ -34,7 +34,7 @@ session_start(); // Start the session
           <a href="./admin">admin</a>
         <?php endif; ?>
         <?php if (isset($_SESSION['userid'])): ?>
-          <a href="#">orders</a>
+          <a href="./orders/">orders</a>
           <a href="./logout">logout</a>
         <?php else: ?>
           <a href="./login">login</a>

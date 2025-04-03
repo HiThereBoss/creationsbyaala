@@ -7,9 +7,9 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
+    <title>Receipt</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/receipt.css">
 </head>
 
 <body>
@@ -54,38 +54,22 @@ session_start();
         </nav>
     </header>
 
-    <div id="admin-container">
-        <h2>Admin Panel</h2>
-        <div id="admin-actions">
-            <a href="add_product.php">Add Product</a>
-            <a href="view_orders.php">View Orders</a>
-            <a href="manage_users.php">Manage Users</a>
-        </div>
-        <div id="admin-content">
-            <!-- Admin content will be loaded here based on the selected action -->
-            <?php
-            // Include the appropriate admin action file based on the user's selection
-            if (isset($_GET['action'])) {
-                $action = $_GET['action'];
-                switch ($action) {
-                    case 'add_product':
-                        include 'add_product.php';
-                        break;
-                    case 'view_orders':
-                        include 'view_orders.php';
-                        break;
-                    case 'manage_users':
-                        include 'manage_users.php';
-                        break;
-                    default:
-                        echo "<p>Invalid action selected.</p>";
-                }
-            } else {
-                echo "<p>Please select an action from the menu.</p>";
-            }
-            ?>
-        </div>
+    <div class="receipt-container">
+        <h3>Items Ordered:</h3>
+        <div id="order-items"></div>
+
+        <p><strong>Subtotal:</strong> <span id="subtotal"></span></p>
+        <p><strong>Tax (10%):</strong> <span id="tax"></span></p>
+        <p><strong>Tip:</strong> <span id="tip"></span></p>
+        <p><strong>Total:</strong> <span id="total"></span></p>
+
+        <button onclick="printReceipt()">Print Receipt</button>
+        <button onclick="saveAsPDF()">Save as PDF</button>
+        <button onclick="saveAsImage()">Save as PNG</button>
+        <a href="index.html"><button>Return to Main Page</button></a>
     </div>
+
+    <script src="../js/receipt.js"></script>
 </body>
 
 </html>

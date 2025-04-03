@@ -7,9 +7,10 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
+    <title>CreationsByAala - Purchase</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/purchase.css">
+    <script defer src="../js/purchase.js"></script>
 </head>
 
 <body>
@@ -54,38 +55,37 @@ session_start();
         </nav>
     </header>
 
-    <div id="admin-container">
-        <h2>Admin Panel</h2>
-        <div id="admin-actions">
-            <a href="add_product.php">Add Product</a>
-            <a href="view_orders.php">View Orders</a>
-            <a href="manage_users.php">Manage Users</a>
-        </div>
-        <div id="admin-content">
-            <!-- Admin content will be loaded here based on the selected action -->
-            <?php
-            // Include the appropriate admin action file based on the user's selection
-            if (isset($_GET['action'])) {
-                $action = $_GET['action'];
-                switch ($action) {
-                    case 'add_product':
-                        include 'add_product.php';
-                        break;
-                    case 'view_orders':
-                        include 'view_orders.php';
-                        break;
-                    case 'manage_users':
-                        include 'manage_users.php';
-                        break;
-                    default:
-                        echo "<p>Invalid action selected.</p>";
-                }
-            } else {
-                echo "<p>Please select an action from the menu.</p>";
-            }
-            ?>
-        </div>
-    </div>
+    <h1>Purchase</h1>
+
+    <form id="purchaseForm" action="../receipt/">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+
+        <label for="card">Card Number:</label>
+        <input type="text" id="card" name="card" pattern="\d{16}" required>
+
+        <label for="exp">Expiration Date:</label>
+        <input type="month" id="exp" name="exp" required>
+
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="cvv" pattern="\d{3}" required>
+
+        <label for="tip">Tip Percentage:</label>
+        <select id="tip" name="tip">
+            <option value="0">0%</option>
+            <option value="10">10%</option>
+            <option value="15">15%</option>
+            <option value="20">20%</option>
+        </select>
+
+        <button type="submit">Submit</button>
+    </form>
 </body>
 
 </html>
