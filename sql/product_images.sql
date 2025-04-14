@@ -39,10 +39,7 @@ CREATE TABLE `product_images` (
 
 INSERT INTO `product_images` (`image_id`, `product_id`, `image_path`) VALUES
 (1, 1, 'assets/images/cake.png'),
-(8, 2, 'assets/images/cake.png'),
-(16, 3, 'assets/images/product-images/67fd83635b7b7-cake_test.jpg'),
-(17, 3, 'assets/images/product-images/67fd83635c012-icon.png'),
-(18, 3, 'assets/images/product-images/67fd83635c8a9-sick_drawing.png');
+(8, 2, 'assets/images/cake.png')
 
 --
 -- Indexes for dumped tables
@@ -62,7 +59,7 @@ ALTER TABLE `product_images`
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

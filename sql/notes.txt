@@ -8,7 +8,9 @@ USERS:
 PRODUCTS:
 - product_id: 1   name: Strawberry Cake
 - product_id: 2   name: Chocolate Cake
+- added more
 
 PRODUCT IMAGES:
 - image_id: 1    product_id: 1  image_path: 'assets/images/product_images/cake.png'
-- image_id: 2    product_id: 1  image_path: 'assets/images/product_images/cake2.png'
+- image_id: 2    product_id: 2  image_path: 'assets/images/product_images/cake.png'
+- added more

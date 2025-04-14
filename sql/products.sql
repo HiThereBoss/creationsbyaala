@@ -44,8 +44,7 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`product_id`, `name`, `category`, `availability`, `description`, `quick_description`, `price`, `processing_time`) VALUES
 (1, 'Strawberry Cake', 'cake', 1, 'A delicious strawberry cake made with love.\r\n\r\nIngredients:\r\n- flour\r\n- milk\r\n- eggs\r\n- sugar', 'Delicious.', 36.00, 24),
-(2, 'Chocolate Cake', 'cake', 1, 'A delicious chocolate cake made with love.\r\n\r\nIngredients:\r\n- flour\r\n- milk\r\n- eggs\r\n- sugar', 'Simply delicious.', 40.00, 24),
-(3, 'Chocolate Bomboclat', 'cake', 1, 'Very delicious\r\n\r\nIngredients:\r\n- bomboclat', 'Yum', 12.00, 48);
+(2, 'Chocolate Cake', 'cake', 1, 'A delicious chocolate cake made with love.\r\n\r\nIngredients:\r\n- flour\r\n- milk\r\n- eggs\r\n- sugar', 'Simply delicious.', 40.00, 24)
 
 --
 -- Indexes for dumped tables
