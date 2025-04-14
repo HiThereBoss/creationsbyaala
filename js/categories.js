@@ -11,15 +11,15 @@ window.onload = () => {
         console.log("Product clicked");
         
         const id = product.id; // Product ID is stored in the id attribute
-
-        // Temporary for testing, should be done in the popup window
         
         togglePopup(id); // Show the popup window when clicked
-
-        // Popup logic, use AJAX to fetch the product details
     });
+  });
 
-
+  const popupForm = document.getElementById("form-container");
+  const closeBtn = document.getElementById("close-button");
+  closeBtn.addEventListener("click", () => {
+    popupForm.style.display = "none"; // Hide the popup when the close button is clicked
   });
 };
 
@@ -33,20 +33,37 @@ function togglePopup(id){
     addToCart(id); // Call the function to add the product to the cart
   });
 
-  const closeBtn = document.getElementById("close-button");
-  closeBtn.addEventListener("click", () => {
-    popupForm.style.display = "none"; // Hide the popup when the close button is clicked
-  });
+  document.getElementById("product-name").innerText = "Loading...";
+  document.getElementById("product-price").innerText = "Loading...";
+  document.getElementById("product-description").innerText = "Loading...";
+  document.getElementById("selected-image").src = "../../assets/images/loading.gif"; // Show loading image
 
-  const url = '../getProduct.php?productId='+id;
+  const imageContainer = document.getElementById("thumbnail-images");
+  imageContainer.innerHTML = ""; // Clear existing thumbnails
+
+  const url = '../getProduct.php?productId='+id+'&getImages=true';
   fetch(url)
   .then(response => response.json())
   .then(data => {
     console.log(data);
     // Populate the popup with product details
     document.getElementById("product-name").innerText = data.name;
+    document.getElementById("selected-image").src = '../../' + data.images[0];
     document.getElementById("product-price").innerText = "the price: $" + data.price;
     document.getElementById("product-description").innerText = data.description;
+
+    data.images.forEach((image, index) => {
+      const thumbnail = document.createElement("img");
+      thumbnail.src = '../../' + image;
+      thumbnail.classList.add("thumbnail-image");
+      thumbnail.setAttribute("data-index", index); // Store the index in a data attribute
+      thumbnail.addEventListener("click", () => {
+        document.getElementById("selected-image").src = '../../' + image; // Update the main image when a thumbnail is clicked
+      });
+      imageContainer.appendChild(thumbnail);
+    });
+
+
   })
   .catch(error => {
     console.error('Error fetching product details:', error);

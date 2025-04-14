@@ -11,9 +11,19 @@ $stmt->execute();
 $products = $stmt->fetchAll();
 
 if (!$products) {
-    echo "<h1>No products found</h1>";
-    exit;
+  echo "<h1>No products found</h1>";
+  exit;
 }
+
+foreach ($products as &$product) {
+  $query = "SELECT image_path FROM product_images WHERE product_id = :product_id";
+  $stmt = $dbh->prepare($query);
+  $stmt->bindParam(':product_id', $product['product_id'], PDO::PARAM_INT);
+  $stmt->execute();
+  $images = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
+  $product['images'] = $images; // Store images in the product array
+}
+unset($product); // Unset the reference to avoid issues later
 ?>
 
 <!DOCTYPE html>
@@ -77,7 +87,7 @@ if (!$products) {
       foreach ($products as $product) {
         echo "<div class='product' id='{$product['product_id']}'>";
         echo "<div class='image-container'>";
-        echo "<img src='../../assets/images/cake.png' alt='Cake' />";
+        echo "<img src='../../{$product['images'][0]}' alt='Cake' />";
         echo "</div>";
         echo "<div class='info-container'>";
         echo "<h3>{$product['name']}</h3>";
@@ -91,23 +101,29 @@ if (!$products) {
     </div>
   </div>
 
-  <div id = "form-container" style = "display: none;">
-    
-      <div id = "cake-container">
-        <img src="../../assets/images/cake.png" alt="Cake" />
-      </div>
-      
+  <div id="form-container" style="display: none;">
 
-      <div id = "text-container">
-          <h3 id = "product-name">Product Name</h3>
-          <p id = "product-description">Product Description</p>
-          <p id = "product-price">Price: $XX.XX</p>
-          <button id="add-to-cart">Add to Cart</button>
+    <div id="thumbnail-container">
+      <div id="thumbnail-images">
+        <!-- Thumbnail images will be inserted here dynamically -->
       </div>
+    </div>
 
-      <div id = "close-container">
-        <button id = "close-button">x</button>
-      </div>
+    <div id="selected-image-container">
+      <img id="selected-image" src="" alt="Cake" />
+    </div>
+
+
+    <div id="text-container">
+      <h3 id="product-name">Product Name</h3>
+      <p id="product-description">Product Description</p>
+      <p id="product-price">Price: $XX.XX</p>
+      <button id="add-to-cart">Add to Cart</button>
+    </div>
+
+    <div id="close-container">
+      <button id="close-button">x</button>
+    </div>
   </div>
 </body>
 

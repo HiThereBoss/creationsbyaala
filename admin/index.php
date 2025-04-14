@@ -57,9 +57,9 @@ session_start();
     <div id="admin-container">
         <h2>Admin Panel</h2>
         <div id="admin-actions">
-            <a href="add_product.php">Add Product</a>
-            <a href="view_orders.php">View Orders</a>
-            <a href="manage_users.php">Manage Users</a>
+            <a href="?action=add_product">Add Product</a>
+            <a href="?action=edit_products">Edit Products</a>
+            <a href="?action=view_orders">View Orders</a>
         </div>
         <div id="admin-content">
             <!-- Admin content will be loaded here based on the selected action -->
@@ -70,12 +70,17 @@ session_start();
                 switch ($action) {
                     case 'add_product':
                         include 'add_product.php';
+
+                        if (isset($_GET['success'])) {
+                            echo "<p class='success-message'>Product added successfully!</p>";
+                        }
+
                         break;
                     case 'view_orders':
                         include 'view_orders.php';
                         break;
-                    case 'manage_users':
-                        include 'manage_users.php';
+                    case 'edit_products':
+                        include 'edit_products.php';
                         break;
                     default:
                         echo "<p>Invalid action selected.</p>";
