@@ -76,9 +76,9 @@ session_start();
         <div id="cart-right">
             <div id="order-summary">
                 <h2>Order Summary</h2>
-                <p id="subtotal">Subtotal: $60.00</p>
-                <p id="tax">Tax: $5.00</p>
-                <p id="total">Total: $70.00</p>
+                <p id="subtotal">Subtotal: $0.00</p>
+                <p id="tax">Tax: $0.00</p>
+                <p id="total">Total: $0.00</p>
                 <button id="checkout-button">Checkout</button>
             </div>
         </div>

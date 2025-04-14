@@ -136,3 +136,7 @@ h2 {
 #order-summary button:hover {
     background-color: #388E3C;
 }
+#order-summary button:disabled {
+    background-color: #ccc;
+    cursor:default;
+}

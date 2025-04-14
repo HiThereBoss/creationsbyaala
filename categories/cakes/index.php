@@ -4,6 +4,13 @@ include '../../connect.php';
 
 session_start(); // Start the session
 
+// If user is not logged in or not an admin, redirect to home page
+if (!isset($_SESSION['access']) && $_SESSION['access'] !== 'admin') {
+  header("Location: ../../");
+  exit;
+}
+
+// Select all cake products from the database
 $query = "SELECT * FROM products WHERE category = 'cake'";
 $stmt = $dbh->prepare($query);
 $stmt->execute();
@@ -15,6 +22,7 @@ if (!$products) {
   exit;
 }
 
+// Fetch images for each product
 foreach ($products as &$product) {
   $query = "SELECT image_path FROM product_images WHERE product_id = :product_id";
   $stmt = $dbh->prepare($query);
@@ -87,6 +95,11 @@ unset($product); // Unset the reference to avoid issues later
       foreach ($products as $product) {
         echo "<div class='product' id='{$product['product_id']}'>";
         echo "<div class='image-container'>";
+
+        if (empty($product['images'])) {
+          $product['images'][0] = 'assets/images/cake.png'; // Default image if none found
+        }
+        // User the first image for the product
         echo "<img src='../../{$product['images'][0]}' alt='Cake' />";
         echo "</div>";
         echo "<div class='info-container'>";
@@ -101,28 +114,26 @@ unset($product); // Unset the reference to avoid issues later
     </div>
   </div>
 
-  <div id="form-container" style="display: none;">
-
-    <div id="thumbnail-container">
-      <div id="thumbnail-images">
-        <!-- Thumbnail images will be inserted here dynamically -->
+  <div id="product-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span id="close-button">&times;</span>
+      <div id="thumbnail-container">
+        <div id="thumbnail-images">
+          <!-- Thumbnail images will be inserted here dynamically -->
+        </div>
       </div>
-    </div>
 
-    <div id="selected-image-container">
-      <img id="selected-image" src="" alt="Cake" />
-    </div>
+      <div id="selected-image-container">
+        <img id="selected-image" src="" alt="Cake" />
+      </div>
 
 
-    <div id="text-container">
-      <h3 id="product-name">Product Name</h3>
-      <p id="product-description">Product Description</p>
-      <p id="product-price">Price: $XX.XX</p>
-      <button id="add-to-cart">Add to Cart</button>
-    </div>
-
-    <div id="close-container">
-      <button id="close-button">x</button>
+      <div id="text-container">
+        <h3 id="product-name">Product Name</h3>
+        <p id="product-description">Product Description</p>
+        <p id="product-price">Price: $XX.XX</p>
+        <button id="add-to-cart">Add to Cart</button>
+      </div>
     </div>
   </div>
 </body>

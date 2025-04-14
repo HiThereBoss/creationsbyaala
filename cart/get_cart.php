@@ -20,6 +20,14 @@ foreach ($_SESSION['cart'] as $uid => $pID) {
     if (!$product) {
         continue; // Skip if product not found
     }
+
+    // Fetch images for the product
+    $query = "SELECT image_path FROM product_images WHERE product_id = :product_id";
+    $stmt = $dbh->prepare($query);
+    $stmt->bindParam(':product_id', $pID, PDO::PARAM_INT);
+    $stmt->execute();
+    $images = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
+
     $products[] = [
         'uid' => $uid,
         'id' => $product['product_id'],
@@ -28,6 +36,7 @@ foreach ($_SESSION['cart'] as $uid => $pID) {
         'price' => $product['price'],
         'quick_description' => $product['quick_description'],
         'processing_time' => $product['processing_time'],
+        'images' => $images,
     ];
 }
 

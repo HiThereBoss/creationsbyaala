@@ -15,7 +15,6 @@ window.onload = () => {
 }
 
 function updateOrderSummary() {
-    console.log(cart);
     let totalPrice = 0.0;
 
     for (const item of Object.values(cart)) {
@@ -34,6 +33,13 @@ function updateOrderSummary() {
 
     const total = document.getElementById("total");
     total.textContent = "Total: $" + (totalPrice + taxAmount).toFixed(2); // Total with tax
+
+    const checkout = document.getElementById("checkout-button");
+    if (cart == null || Object.keys(cart).length == 0) {
+        checkout.setAttribute("disabled", "true"); // Disable the button if cart is empty
+        return;
+    }
+    checkout.removeAttribute("disabled"); // Enable the button if cart is not empty
 }
 
 function initialize_cart() {
@@ -95,8 +101,8 @@ function createCartElement(item) {
     cartItem.setAttribute("product-id", item.id);
 
     const img = document.createElement("img");
-    img.src = "../assets/images/cake.png"; // Placeholder image
-    img.alt = item.name + " Image";
+    img.src = "../" + item.images[0];
+    img.alt = item.name;
     cartItem.appendChild(img);
 
     const itemContent = document.createElement("div");
