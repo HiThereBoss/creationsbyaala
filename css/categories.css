@@ -71,16 +71,20 @@
 
 .product .image-container {
     /* background-color: var(--color-quaternary); */
-    height: 80%;
+    height: 75%;
     object-fit: cover;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .product .info-container {
     /* background-color: var(--color-secondary); */
     height: 20%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+.product .info-container p {
+    overflow-wrap: break-word;
 }
 
 .image-container img {

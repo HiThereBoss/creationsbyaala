@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2025 at 06:15 AM
+-- Generation Time: Apr 14, 2025 at 11:53 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -38,8 +38,11 @@ CREATE TABLE `product_images` (
 --
 
 INSERT INTO `product_images` (`image_id`, `product_id`, `image_path`) VALUES
-(1, 1, '\'assets/images/product_images/cake.png\''),
-(2, 1, '\'assets/images/product_images/cake2.png\'');
+(1, 1, 'assets/images/cake.png'),
+(8, 2, 'assets/images/cake.png'),
+(16, 3, 'assets/images/product-images/67fd83635b7b7-cake_test.jpg'),
+(17, 3, 'assets/images/product-images/67fd83635c012-icon.png'),
+(18, 3, 'assets/images/product-images/67fd83635c8a9-sick_drawing.png');
 
 --
 -- Indexes for dumped tables
@@ -59,7 +62,7 @@ ALTER TABLE `product_images`
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

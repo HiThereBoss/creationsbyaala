@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2025 at 09:55 PM
+-- Generation Time: Apr 14, 2025 at 11:53 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -35,7 +35,7 @@ CREATE TABLE `products` (
   `description` text NOT NULL,
   `quick_description` text NOT NULL,
   `price` decimal(5,2) NOT NULL DEFAULT 0.00,
-  `processing_time` time NOT NULL DEFAULT '24:00:00'
+  `processing_time` int(11) NOT NULL DEFAULT 24
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -43,8 +43,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `name`, `category`, `availability`, `description`, `quick_description`, `price`, `processing_time`) VALUES
-(1, 'Strawberry Cake', 'cake', 1, 'A delicious strawberry cake made with love.\r\n\r\nIngredients:\r\n- flour\r\n- milk\r\n- eggs\r\n- sugar', 'Simply delicious.', 35.50, '24:00:00'),
-(2, 'Chocolate Cake', 'cake', 1, 'A delicious chocolate cake made with love.\r\n\r\nIngredients:\r\n- flour\r\n- milk\r\n- eggs\r\n- sugar', 'Simply delicious.', 40.00, '24:00:00');
+(1, 'Strawberry Cake', 'cake', 1, 'A delicious strawberry cake made with love.\r\n\r\nIngredients:\r\n- flour\r\n- milk\r\n- eggs\r\n- sugar', 'Delicious.', 36.00, 24),
+(2, 'Chocolate Cake', 'cake', 1, 'A delicious chocolate cake made with love.\r\n\r\nIngredients:\r\n- flour\r\n- milk\r\n- eggs\r\n- sugar', 'Simply delicious.', 40.00, 24),
+(3, 'Chocolate Bomboclat', 'cake', 1, 'Very delicious\r\n\r\nIngredients:\r\n- bomboclat', 'Yum', 12.00, 48);
 
 --
 -- Indexes for dumped tables
@@ -64,7 +65,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
