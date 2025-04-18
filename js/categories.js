@@ -104,7 +104,6 @@ function addToCart(productId) {
     .then((response) => response.json())
     .then((data) => {
       console.log("Success:", data);
-      // Update the cart UI if necessary
     });
 
   console.log(`Product ${productId} added to cart`);
