@@ -1,5 +1,27 @@
 <?php
 session_start();
+
+$orderid = filter_input(INPUT_GET, 'orderid', FILTER_VALIDATE_INT);
+
+if (!$orderid) {
+    header('Location: ../');
+    exit;
+}
+
+include '../connect.php';
+
+$query = "SELECT `purchase_price` FROM orders WHERE order_id = :orderid";
+$stmt = $dbh->prepare($query);
+$stmt->bindParam(':orderid', $orderid, PDO::PARAM_INT);
+$stmt->execute();
+$order = $stmt->fetch(PDO::FETCH_ASSOC);
+if (!$order) {
+    header('Location: ../');
+    exit;
+}
+
+$total = $order['purchase_price'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,10 +80,7 @@ session_start();
         <h3>Items Ordered:</h3>
         <div id="order-items"></div>
 
-        <p><strong>Subtotal:</strong> <span id="subtotal"></span></p>
-        <p><strong>Tax (10%):</strong> <span id="tax"></span></p>
-        <p><strong>Tip:</strong> <span id="tip"></span></p>
-        <p><strong>Total:</strong> <span id="total"></span></p>
+        <p><strong>Total:</strong> <span id="total"><?php echo "$$total"; ?></span></p>
 
         <button onclick="printReceipt()">Print Receipt</button>
         <button onclick="saveAsPDF()">Save as PDF</button>

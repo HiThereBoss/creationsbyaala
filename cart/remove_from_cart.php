@@ -20,6 +20,6 @@ if (!isset($_SESSION['cart'][$uid])) {
 }
 
 // Remove the product from the cart
-$_SESSION['cart'][$uid] = null;
+unset($_SESSION['cart'][$uid]);
 
 echo json_encode("Product removed from cart successfully");

@@ -57,7 +57,7 @@ session_start();
 
     <h1>Purchase</h1>
 
-    <form id="purchaseForm" action="../receipt/">
+    <form id="purchaseForm" action="process_purchase.php" method="POST">
         <label for="name">Full Name:</label>
         <input type="text" id="name" name="name" required>
 

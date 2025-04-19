@@ -1,3 +1,7 @@
+// Globals
+var currentTimeOutID = null;
+var currentProductId = null;
+
 window.onload = () => {
   // Support for sequential fade in animation based off HTML order
   const products = document.querySelectorAll(".product");
@@ -21,10 +25,31 @@ window.onload = () => {
 
   closeBtn.addEventListener("click", () => {
     modal.style.display = "none"; // Hide the popup when the close button is clicked
+    currentProductId = null; // Reset the current product ID
+    if (currentTimeOutID) {
+      clearTimeout(currentTimeOutID); // Clear the timeout if it exists
+    }
+  });
+
+  const addToCartBtn = document.getElementById("add-to-cart");
+  addToCartBtn.addEventListener("click", () => {
+    addToCartBtn.innerText = "Added to Cart"; // Change button text after adding to cart
+    addToCartBtn.classList.add("added-to-cart"); // Add a class to change the button style
+    addToCartBtn.setAttribute("disabled", "true"); // Disable the button after adding to cart
+
+    currentTimeOutID = setTimeout(() => {
+      addToCartBtn.innerText = "Add to Cart"; // Reset button text after 2 seconds
+      addToCartBtn.classList.remove("added-to-cart"); // Remove the class to reset style
+      addToCartBtn.removeAttribute("disabled"); // Re-enable the button
+    }, 2000); // Reset after 2 seconds
+
+    addToCart(); // Call the function to add the product to the cart
   });
 };
 
 function togglePopup(id) {
+  currentProductId = id; // Store the current product ID
+
   const modal = document.getElementById("product-modal");
   modal.style.display = "flex";
 
@@ -32,25 +57,21 @@ function togglePopup(id) {
   window.addEventListener("click", (event) => {
     if (event.target == modal) {
       modal.style.display = "none";
+      currentProductId = null; // Reset the current product ID
+      if (currentTimeOutID) {
+        clearTimeout(currentTimeOutID); // Clear the timeout if it exists
+      }
     }
   });
 
   // Initialize the "Add to Cart" button
   const addToCartBtn = document.getElementById("add-to-cart");
-  addToCartBtn.addEventListener("click", () => {
-    addToCartBtn.removeEventListener("click", arguments.callee);
-    addToCartBtn.innerText = "Added to Cart"; // Change button text after adding to cart
-    addToCartBtn.classList.add("added-to-cart"); // Add a class to change the button style
-    addToCartBtn.setAttribute("disabled", "true"); // Disable the button after adding to cart
-
-    setTimeout(() => {
-      addToCartBtn.innerText = "Add to Cart"; // Reset button text after 2 seconds
-      addToCartBtn.classList.remove("added-to-cart"); // Remove the class to reset style
-      addToCartBtn.removeAttribute("disabled"); // Re-enable the button
-    }, 2000); // Reset after 2 seconds
-
-    addToCart(id); // Call the function to add the product to the cart
-  });
+  if (currentTimeOutID) {
+    addToCartBtn.innerText = "Add to Cart"; // Reset button text after 2 seconds
+    addToCartBtn.classList.remove("added-to-cart"); // Remove the class to reset style
+    addToCartBtn.removeAttribute("disabled"); // Re-enable the button
+    clearTimeout(currentTimeOutID); // Clear the timeout if it exists
+  }
 
   // Initialize all elements to loading state
   document.getElementById("product-name").innerText = "Loading...";
@@ -91,7 +112,9 @@ function togglePopup(id) {
     });
 }
 
-function addToCart(productId) {
+function addToCart() {
+  if (!currentProductId) return; // Check if a product is selected
+  const productId = currentProductId; // Get the current product ID
   // Logic to add the product to the cart
   const url = "../../cart/add_to_cart.php?id=" + productId;
 

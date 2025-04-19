@@ -1,5 +1,38 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['userid'])) {
+    header("Location: ../login");
+    exit();
+}
+
+include '../connect.php';
+
+$query = "SELECT * FROM orders WHERE userid = :userid";
+$stmt = $dbh->prepare($query);
+$stmt->bindParam(':userid', $_SESSION['userid']);
+$stmt->execute();
+$orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+foreach ($orders as $key => $order) {
+    $orderId = $order['order_id'];
+    $query = "SELECT * FROM order_items WHERE order_id = :order_id";
+    $stmt = $dbh->prepare($query);
+    $stmt->bindParam(':order_id', $orderId, PDO::PARAM_INT);
+    $stmt->execute();
+    
+    $orders[$key]['items'] = [];
+    foreach ($stmt->fetchAll() as $item) {
+        $query = "SELECT * FROM products WHERE product_id = :product_id";
+        $stmt = $dbh->prepare($query);
+        $stmt->bindParam(':product_id', $item['product_id'], PDO::PARAM_INT);
+        $stmt->execute();
+        $product = $stmt->fetch();
+        $orders[$key]['items'][] = $product;
+    }
+    
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +88,36 @@ session_start();
         </nav>
     </header>
 
-    
+    <h2>Order History</h2>
+
+    <div id="orders-container">
+        <?php 
+        if (empty($orders))
+            echo "<p>No orders found.</p>";
+        else {
+            foreach ($orders as $order) {
+                echo "<div class='order-entry'>";
+                echo "<div class='order-details'>";
+                echo "<h3 class='order-title'>Order #" . htmlspecialchars($order['order_id']) . "</h3>";
+                echo "<p class='order-meta'>Purchase Date: " . htmlspecialchars($order['purchase_date']) . "</p>";
+                echo "<p class='order-meta'>Total Price: $" . number_format($order['purchase_price'], 2) . "</p>";
+                echo "</div>";
+                echo "<div class='order-items'>";
+                foreach ($order['items'] as $item) {
+                    echo "<div class='order-item'>";
+                    echo "<h4 class='item-name'>" . htmlspecialchars($item['name']) . "</h4>";
+                    echo "<p class='item-meta'>Category: " . htmlspecialchars($item['category']) . "</p>";
+                    echo "<p class='item-meta'>Price: $" . number_format($item['price'], 2) . "</p>";
+                    echo "<p class='item-meta'>Processing Time: " . htmlspecialchars($item['processing_time']) . " hours</p>";
+                    echo "</div>";
+                }
+                echo "</div>";
+                echo "</div>";
+            }
+        }
+        ?>
+
+    </div>
 </body>
 
 </html>

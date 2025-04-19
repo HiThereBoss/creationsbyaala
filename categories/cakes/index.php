@@ -4,14 +4,8 @@ include '../../connect.php';
 
 session_start(); // Start the session
 
-// If user is not logged in or not an admin, redirect to home page
-if (!isset($_SESSION['access']) && $_SESSION['access'] !== 'admin') {
-  header("Location: ../../");
-  exit;
-}
-
 // Select all cake products from the database
-$query = "SELECT * FROM products WHERE category = 'cake'";
+$query = "SELECT * FROM products WHERE category = 'cake' AND availability = 1";
 $stmt = $dbh->prepare($query);
 $stmt->execute();
 
