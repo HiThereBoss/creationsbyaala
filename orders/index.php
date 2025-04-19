@@ -92,30 +92,54 @@ foreach ($orders as $key => $order) {
 
     <div id="orders-container">
         <?php 
-        if (empty($orders))
-            echo "<p>No orders found.</p>";
-        else {
-            foreach ($orders as $order) {
-                echo "<div class='order-entry'>";
-                echo "<div class='order-details'>";
-                echo "<h3 class='order-title'>Order #" . htmlspecialchars($order['order_id']) . "</h3>";
-                echo "<p class='order-meta'>Purchase Date: " . htmlspecialchars($order['purchase_date']) . "</p>";
-                echo "<p class='order-meta'>Total Price: $" . number_format($order['purchase_price'], 2) . "</p>";
-                echo "</div>";
-                echo "<div class='order-items'>";
-                foreach ($order['items'] as $item) {
-                    echo "<div class='order-item'>";
-                    echo "<h4 class='item-name'>" . htmlspecialchars($item['name']) . "</h4>";
-                    echo "<p class='item-meta'>Category: " . htmlspecialchars($item['category']) . "</p>";
-                    echo "<p class='item-meta'>Price: $" . number_format($item['price'], 2) . "</p>";
-                    echo "<p class='item-meta'>Processing Time: " . htmlspecialchars($item['processing_time']) . " hours</p>";
-                    echo "</div>";
-                }
-                echo "</div>";
-                echo "</div>";
-            }
-        }
+        // if (empty($orders))
+        //     echo "<p>No orders found.</p>";
+        // else {
+        //     foreach ($orders as $order) {
+        //         echo "<div class='order-entry'>";
+        //         echo "<div class='order-details'>";
+        //         echo "<h3 class='order-title'>Order #" . htmlspecialchars($order['order_id']) . "</h3>";
+        //         echo "<p class='order-meta'>Purchase Date: " . htmlspecialchars($order['purchase_date']) . "</p>";
+        //         echo "<p class='order-meta'>Total Price: $" . number_format($order['purchase_price'], 2) . "</p>";
+        //         echo "</div>";
+        //         echo "<div class='order-items'>";
+        //         foreach ($order['items'] as $item) {
+        //             echo "<div class='order-item'>";
+        //             echo "<h4 class='item-name'>" . htmlspecialchars($item['name']) . "</h4>";
+        //             echo "<p class='item-meta'>Category: " . htmlspecialchars($item['category']) . "</p>";
+        //             echo "<p class='item-meta'>Price: $" . number_format($item['price'], 2) . "</p>";
+        //             echo "<p class='item-meta'>Processing Time: " . htmlspecialchars($item['processing_time']) . " hours</p>";
+        //             echo "</div>";
+        //         }
+        //         echo "</div>";
+        //         echo "</div>";
+        //     }
+        // }
         ?>
+        <?php if (empty($orders)): ?>
+            <p>No orders found.</p>
+        <?php else: ?>
+            <?php foreach ($orders as $order): ?>
+                <div class="order-entry">
+                    <div class="order-details">
+                        <h3 class="order-title">Order #<?php echo htmlspecialchars($order['order_id']); ?></h3>
+                        <p class="order-meta">Purchase Date: <?php echo htmlspecialchars($order['purchase_date']); ?></p>
+                        <p class="order-meta">Total Price: $<?php echo number_format($order['purchase_price'], 2); ?></p>
+                    </div>
+                    <div class="order-items">
+                        <?php foreach ($order['items'] as $item): ?>
+                            <div class="order-item">
+                                <h4 class="item-name"><?php echo htmlspecialchars($item['name']); ?></h4>
+                                <p class="item-meta">Category: <?php echo htmlspecialchars($item['category']); ?></p>
+                                <p class="item-meta">Price: $<?php echo number_format($item['price'], 2); ?></p>
+                                <p class="item-meta">Processing Time: <?php echo htmlspecialchars($item['processing_time']); ?> hours</p>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <button class="receipt-button" onclick="window.location.href='../receipt/?orderid=<?php echo $order['order_id']; ?>'">View Receipt</button>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
 
     </div>
 </body>

@@ -1,10 +1,3 @@
-body{
-    font-family: 'Arial', sans-serif;
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
 .receipt-container{
     width: 100%;
     margin: 0 auto;
@@ -13,6 +6,15 @@ body{
     border: 1px solid #e1e1e1;
     border-radius: 5px;
     width: 300px;
+}
+
+.print-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 h2{
@@ -33,6 +35,31 @@ button {
 
 button:hover {
     background-color: #72706e;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.order-item-separator {
+    border-bottom: 1px solid #ccc;
+    margin: 10px 0;
+}
+.order-item-separator:last-child {
+    border-bottom: none;
+}
+
+.error-message-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+.error-message {
+    color: red;
+    font-size: 16px;
+    margin-top: 10px;
 }
 
 

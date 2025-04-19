@@ -65,3 +65,18 @@ h2 {
     color: #777;
     text-align: center;
 }
+
+.receipt-button {
+    margin: 10px 15px;
+    padding: 8px 12px;
+    background-color: #bdbbba;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    width: 10%;
+}
+.receipt-button:hover {
+    background-color: #72706e;
+}
