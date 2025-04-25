@@ -1,3 +1,12 @@
+<!-- 
+  Tiya Jathan, 
+
+  Date created: 2025-03-15
+
+  The user gets redirected to this page after they place an order. 
+  The order ID is passed as a GET parameter, and the order details are fetched
+  only if the user has access to view the order.
+-->
 <?php
 session_start();
 

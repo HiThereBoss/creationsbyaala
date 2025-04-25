@@ -1,3 +1,12 @@
+<!-- 
+  Emre Bozkurt, 400555259
+
+  Date created: 2025-04-15
+
+  Displays a form with all the necessary fields to add a new product to the database.
+  The form includes fields for product name, category, price, processing time,
+  quick description, full description, and multiple images.
+-->
 <?php
 
 if (!isset($_SESSION)) {

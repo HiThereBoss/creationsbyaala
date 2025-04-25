@@ -1,3 +1,9 @@
+// Tiya Jathan, 
+// Date created: 2025-03-25
+//
+// Handles the printing process for the receipt page.
+// This includes creating a hidden iframe to load the receipt content and trigger the print dialog.
+
 function closePrint() {
   document.body.removeChild(this.__container__);
 }

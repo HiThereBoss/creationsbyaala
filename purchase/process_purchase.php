@@ -1,32 +1,4 @@
-<!-- <form id="purchaseForm" action="process_purchase.php" method="POST">
-        <label for="name">Full Name:</label>
-        <input type="text" id="name" name="name" required>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
-
-        <label for="card">Card Number:</label>
-        <input type="text" id="card" name="card" pattern="\d{16}" required>
-
-        <label for="exp">Expiration Date:</label>
-        <input type="month" id="exp" name="exp" required>
-
-        <label for="cvv">CVV:</label>
-        <input type="text" id="cvv" name="cvv" pattern="\d{3}" required>
-
-        <label for="tip">Tip Percentage:</label>
-        <select id="tip" name="tip">
-            <option value="0">0%</option>
-            <option value="10">10%</option>
-            <option value="15">15%</option>
-            <option value="20">20%</option>
-        </select>
-
-        <button type="submit">Submit</button>
-    </form> -->
 <?php
 // Process the purchase form submission
 

@@ -1,3 +1,11 @@
+<!-- 
+  Emre Bozkurt, 400555259
+
+  Date created: 2025-02-15
+
+  Called upon through AJAX from the login page, it verifies the given
+    credentials against the database and sets the session variables.
+-->
 <?php
 
 header('Content-Type: application/json');

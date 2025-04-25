@@ -1,3 +1,10 @@
+// Emre Bozkurt, 400555259
+// Date created: 2025-03-25
+//
+// Similar to the login page, user input is fetched from the registration form 
+// and sent to the server for verification using AJAX.
+// This includes handling the response and displaying error messages if needed.
+
 window.onload = () => {
     const registerForm = document.getElementById("login-form");
     const errorMessage = document.getElementById("error-message");

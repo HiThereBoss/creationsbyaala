@@ -1,3 +1,11 @@
+<!-- 
+  Peter Wu, 
+
+  Date created: 2025-04-15
+
+  Template for the Orders page. This file provides a visual skeleton
+  for the Orders page. Actual data integration will be implemented later.
+-->
 <?php
 // orders.php
 // This file serves as a visual prototype for the "My Orders" page.

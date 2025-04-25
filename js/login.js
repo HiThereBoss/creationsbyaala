@@ -1,3 +1,9 @@
+// Emre Bozkurt, 400555259
+// Date created: 2025-03-25
+//
+// Fetches user input from the login form and sends it to the server for verification.
+// This includes handling the response and displaying error messages if needed.
+
 window.onload = () => {
     const loginForm = document.getElementById("login-form");
     const errorMessage = document.getElementById("error-message");

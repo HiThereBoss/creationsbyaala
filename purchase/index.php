@@ -1,3 +1,11 @@
+<!-- 
+  Siddhi Upadhyaya, 
+
+  Date created: 2025-03-15
+
+  The user gets redirected to this page after they checkout their cart. 
+  It gets details about the user and continues to process the payment.
+-->
 <?php
 session_start();
 ?>

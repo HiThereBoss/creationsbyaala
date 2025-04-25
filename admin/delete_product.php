@@ -1,3 +1,12 @@
+<!-- 
+  Emre Bozkurt, 400555259
+
+  Date created: 2025-04-15
+
+  Safely deletes a product from the database and its associated images from the server.
+  It checks if the user is an admin before allowing the deletion, just in case.
+  Error handling is included to ensure a smooth user experience.
+-->
 <?php
 // filepath: c:\xampp\htdocs\creationsbyaala\admin\delete_product.php
 

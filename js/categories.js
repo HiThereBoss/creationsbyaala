@@ -1,3 +1,9 @@
+// Sreyo Biswas, 
+// Date created: 2025-03-25
+//
+// Uses AJAX to fetch all products from the database and displays them on the page.
+// This includes handling the product details popup and adding products to the cart.
+
 // Globals
 var currentTimeOutID = null;
 var currentProductId = null;

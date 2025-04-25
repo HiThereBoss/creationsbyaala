@@ -1,3 +1,13 @@
+<!-- 
+  Emre Bozkurt, 400555259
+  Sreyo Biswas, 
+
+  Date created: 2025-02-15
+
+  This is the main page of the web app, which serves as the landing page.
+  It includes a 3D model viewer for showcasing products and the navigation bar
+  to get the user started.
+-->
 <?php
 session_start(); // Start the session
 ?>

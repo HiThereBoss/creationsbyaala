@@ -1,3 +1,14 @@
+<!-- 
+  Emre Bozkurt, 400555259
+
+  Date created: 2025-04-15
+
+  Auxilary script to add a new product to the database, including multiple images.
+  It handles the file upload and database insertion, and redirects to the add 
+  product page with a success message.
+  Uploaded images are stored in the database under assets/images/product-images/,
+  and their paths are stored in a database table.
+-->
 <?php
 // filepath: c:\xampp\htdocs\creationsbyaala\admin\upload_product.php
 
