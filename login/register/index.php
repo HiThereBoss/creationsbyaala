@@ -1,3 +1,11 @@
+<!-- 
+  Emre Bozkurt, 400555259
+
+  Date created: 2025-03-15
+
+  Accessible through the login page, allowing the user to create a new account.
+  It creates the user in the database and logs them in automatically.
+-->
 <?php
 // Connect to session
 session_start();

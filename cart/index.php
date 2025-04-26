@@ -1,3 +1,13 @@
+<!-- 
+  Emre Bozkurt, 400555259
+
+  Date created: 2025-03-15
+
+  Accessible through the cart icon in the nav bar. 
+  The Javascript file cart.js fetches the cart items from the server and 
+  displays them in the cart, in the form of a list of cards.
+  Each card has a thumbnail image, name, price, and quick description.
+-->
 <?php
 session_start();
 ?>

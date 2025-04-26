@@ -1,3 +1,15 @@
+<!-- 
+  Sreyo Biswas, 400566085
+  Emre Bozkurt, 400555259
+
+  Date created: 2025-03-15
+
+  Fetches all products from the database, and displays them in a grid format.
+  Each product has a thumbnail image, name, and quick description. 
+  Clicking on a product opens a modal with more details, and the option to add it to the cart.
+  The modal also displays all images associated with the product.
+-->
+
 <?php
 
 include '../../connect.php';

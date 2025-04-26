@@ -1,3 +1,16 @@
+/*
+  Sreyo Biswas, 400566085
+  Emre Bozkurt, 400555259
+  
+
+  Contains the css for the header which is used in all pages, and also contains the css for when the admin is logged in;
+  the header changes to show the admin options.
+*/
+
+
+
+
+
 #header-container {
   display: flex;
   justify-content: flex-start;

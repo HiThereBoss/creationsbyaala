@@ -1,3 +1,11 @@
+<!-- 
+  Emre Bozkurt, 400555259
+
+  Date created: 2025-03-15
+
+  Creates a new user in the database and logs them in automatically.
+  It handles the registration process, including password hashing and session management.
+-->
 <?php
 
 header('Content-Type: application/json');

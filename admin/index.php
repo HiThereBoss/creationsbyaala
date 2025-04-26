@@ -1,3 +1,13 @@
+<!-- 
+  Emre Bozkurt, 400555259
+
+  Date created: 2025-04-15
+
+  The landing page for the admin panel, only accessible to users with admin access.
+  It allows the admin to add and edit products, and view current orders.
+  The page includes links to the respective actions and loads the content 
+  dynamically based on the selected action.
+-->
 <?php
 session_start();
 ?>

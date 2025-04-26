@@ -1,3 +1,14 @@
+
+// Emre Bozkurt, 400555259
+// Sreyo Biswas, 400566085
+// Date created: 2025-03-25
+//
+// Handles the cart functionality for the shopping cart page.
+// This includes fetching the cart items through AJAX, displaying them, 
+// and handling the checkout process.
+
+
+
 const cartChangedEvent = new Event("cartChanged");
 
 var cart = [];

@@ -1,3 +1,13 @@
+<!-- 
+  Sreyo Biswas, 400566085
+  Emre Bozkurt, 400555259
+
+  Date created: 2025-03-15
+
+  Fetches product information from the database based on the product ID passed 
+  as a GET parameter. If the product is found, it returns the product details as JSON.
+  If the product is not found, it returns an error message. 
+-->
 <?php
 
     include '../connect.php';

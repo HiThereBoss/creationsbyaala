@@ -1,3 +1,12 @@
+<!-- 
+  Emre Bozkurt, 400555259
+
+  Date created: 2025-03-15
+
+  Fetches all products from the user's cart stored in the session.
+  Each product is fetched from the database using its product ID.
+  Returns a properly formatted JSON response with product details.
+-->
 <?php
 // Getting items from cart
 

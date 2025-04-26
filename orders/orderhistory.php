@@ -1,3 +1,11 @@
+<!-- 
+  Peter Wu, 
+
+  Date created: 2025-04-15
+
+  Template for the Orders History page. This file provides a visual skeleton
+  for the Orders History page. Actual data integration will be implemented later.
+-->
 <?php
 // orders_history.php
 // This file provides a visual skeleton for the Orders History page.

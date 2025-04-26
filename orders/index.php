@@ -1,3 +1,14 @@
+<!-- 
+  Peter Wu, 
+  Emre Bozkurt, 400555259
+
+  Date created: 2025-04-15
+
+  Accessible by the nav bar, this page shows the order history of the user.
+  It fetches the order history from the database and displays it in a 
+  user-friendly format. Each order item also has a button to redirect to the receipt 
+  for that order.
+-->
 <?php
 session_start();
 
@@ -91,31 +102,6 @@ foreach ($orders as $key => $order) {
     <h2>Order History</h2>
 
     <div id="orders-container">
-        <?php 
-        // if (empty($orders))
-        //     echo "<p>No orders found.</p>";
-        // else {
-        //     foreach ($orders as $order) {
-        //         echo "<div class='order-entry'>";
-        //         echo "<div class='order-details'>";
-        //         echo "<h3 class='order-title'>Order #" . htmlspecialchars($order['order_id']) . "</h3>";
-        //         echo "<p class='order-meta'>Purchase Date: " . htmlspecialchars($order['purchase_date']) . "</p>";
-        //         echo "<p class='order-meta'>Total Price: $" . number_format($order['purchase_price'], 2) . "</p>";
-        //         echo "</div>";
-        //         echo "<div class='order-items'>";
-        //         foreach ($order['items'] as $item) {
-        //             echo "<div class='order-item'>";
-        //             echo "<h4 class='item-name'>" . htmlspecialchars($item['name']) . "</h4>";
-        //             echo "<p class='item-meta'>Category: " . htmlspecialchars($item['category']) . "</p>";
-        //             echo "<p class='item-meta'>Price: $" . number_format($item['price'], 2) . "</p>";
-        //             echo "<p class='item-meta'>Processing Time: " . htmlspecialchars($item['processing_time']) . " hours</p>";
-        //             echo "</div>";
-        //         }
-        //         echo "</div>";
-        //         echo "</div>";
-        //     }
-        // }
-        ?>
         <?php if (empty($orders)): ?>
             <p>No orders found.</p>
         <?php else: ?>
