@@ -1,5 +1,5 @@
 <!-- 
-  Peter Wu, 
+  Peter Wu, 400444595
   Emre Bozkurt, 400555259
 
   Date created: 2025-04-15
@@ -33,6 +33,7 @@ foreach ($orders as $key => $order) {
     $stmt->execute();
     
     $orders[$key]['items'] = [];
+    $latestProcessingTime = 0;
     foreach ($stmt->fetchAll() as $item) {
         $query = "SELECT * FROM products WHERE product_id = :product_id";
         $stmt = $dbh->prepare($query);
@@ -40,7 +41,13 @@ foreach ($orders as $key => $order) {
         $stmt->execute();
         $product = $stmt->fetch();
         $orders[$key]['items'][] = $product;
+
+        if ($product['processing_time'] > $latestProcessingTime) {
+            $latestProcessingTime = $product['processing_time'];
+        }
     }
+    
+    $orders[$key]['estimated_pickup'] = date('Y-m-d', strtotime($order['purchase_date'] . ' + ' . $latestProcessingTime . ' hours'));
     
 }
 
@@ -111,6 +118,9 @@ foreach ($orders as $key => $order) {
                         <h3 class="order-title">Order #<?php echo htmlspecialchars($order['order_id']); ?></h3>
                         <p class="order-meta">Purchase Date: <?php echo htmlspecialchars($order['purchase_date']); ?></p>
                         <p class="order-meta">Total Price: $<?php echo number_format($order['purchase_price'], 2); ?></p>
+                    </div>
+                    <div class="order-estimated">
+                        <p class="order-meta">Estimated Pickup: <?php echo htmlspecialchars($order['estimated_pickup']); ?></p>
                     </div>
                     <div class="order-items">
                         <?php foreach ($order['items'] as $item): ?>
