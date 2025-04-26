@@ -23,9 +23,17 @@ if (!$order) {
     $message = 'Order not found.';
 }
 
-if ((isset($_SESSION['access']) && $_SESSION['access'] !== 'admin') && (isset($_SESSION['userid']) && $_SESSION['userid'] !== $order['userid'])) {
+if ((isset($_SESSION['access']) && $_SESSION['access'] !== 'admin') // User is not admin
+    && (isset($_SESSION['userid']) && $_SESSION['userid'] !== $order['userid'])) // User is not the owner of the order 
+{
     $ok = false;
     $message = 'You do not have permission to view this order.';
+}
+
+if (($order['userid'] !== NULL) && !isset($_SESSION['userid'])) // User is not logged in
+{
+    $ok = false;
+    $message = 'You must be logged in to view this receipt.';
 }
 
 if ($ok) {

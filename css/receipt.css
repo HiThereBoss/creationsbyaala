@@ -60,6 +60,16 @@ a {
     color: red;
     font-size: 16px;
     margin-top: 10px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 
