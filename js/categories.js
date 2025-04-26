@@ -1,4 +1,4 @@
-// Sreyo Biswas, 
+// Sreyo Biswas, 400566085
 // Date created: 2025-03-25
 //
 // Uses AJAX to fetch all products from the database and displays them on the page.

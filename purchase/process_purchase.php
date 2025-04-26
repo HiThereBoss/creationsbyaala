@@ -1,4 +1,11 @@
+<!-- 
+  Siddhi Upadhyaya, 
 
+  Date created: 2025-03-15
+
+  This file contains the logic for processing the purchase of items in the cart.
+  It validates the input data, calculates the total price including tax and tip,
+-->
 <?php
 // Process the purchase form submission
 

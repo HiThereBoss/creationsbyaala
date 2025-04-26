@@ -1,5 +1,6 @@
 
 // Emre Bozkurt, 400555259
+// Sreyo Biswas, 400566085
 // Date created: 2025-03-25
 //
 // Handles the cart functionality for the shopping cart page.

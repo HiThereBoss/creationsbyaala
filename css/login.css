@@ -1,3 +1,12 @@
+/*
+  Emre Bozkurt, 400555259
+  
+
+  Contains the css for the login page. It is used to style the login form and its elements. 
+
+*/
+
+
 #login-form {
   width: 100%;
   max-width: 400px;
