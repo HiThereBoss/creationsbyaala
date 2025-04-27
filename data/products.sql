@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.2-1.el9
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 14, 2025 at 11:53 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Host: localhost
+-- Generation Time: Apr 27, 2025 at 01:11 AM
+-- Server version: 9.1.0-commercial
+-- PHP Version: 8.2.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,14 +28,14 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `products` (
-  `product_id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `category` varchar(10) NOT NULL,
-  `availability` tinyint(1) NOT NULL DEFAULT 1,
-  `description` text NOT NULL,
-  `quick_description` text NOT NULL,
-  `price` decimal(5,2) NOT NULL DEFAULT 0.00,
-  `processing_time` int(11) NOT NULL DEFAULT 24
+  `product_id` int NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `category` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `availability` tinyint(1) NOT NULL DEFAULT '1',
+  `description` text COLLATE utf8mb4_general_ci NOT NULL,
+  `quick_description` text COLLATE utf8mb4_general_ci NOT NULL,
+  `price` decimal(5,2) NOT NULL DEFAULT '0.00',
+  `processing_time` int NOT NULL DEFAULT '24'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -44,7 +44,8 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`product_id`, `name`, `category`, `availability`, `description`, `quick_description`, `price`, `processing_time`) VALUES
 (1, 'Strawberry Cake', 'cake', 1, 'A delicious strawberry cake made with love.\r\n\r\nIngredients:\r\n- flour\r\n- milk\r\n- eggs\r\n- sugar', 'Delicious.', 36.00, 24),
-(2, 'Chocolate Cake', 'cake', 1, 'A delicious chocolate cake made with love.\r\n\r\nIngredients:\r\n- flour\r\n- milk\r\n- eggs\r\n- sugar', 'Simply delicious.', 40.00, 24)
+(2, 'Chocolate Cake', 'cake', 1, 'A delicious chocolate cake made with love.\r\n\r\nIngredients:\r\n- flour\r\n- milk\r\n- eggs\r\n- sugar', 'Simply delicious.', 40.00, 24),
+(3, 'Chocolate Cake Special', 'cake', 1, 'Very delicious\r\n\r\nIngredients:\r\n- chocolate\r\n- special ingredient\r\n- egg', 'Yum', 12.00, 48);
 
 --
 -- Indexes for dumped tables
@@ -64,7 +65,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `product_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
