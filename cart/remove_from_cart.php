@@ -1,11 +1,10 @@
-<!-- 
-  Emre Bozkurt, 400555259
-
-  Date created: 2025-03-15
-
-  Removes a product from the user's cart stored in the session.
--->
 <?php
+
+// Emre Bozkurt, 400555259
+
+// Date created: 2025-03-15
+
+// Removes a product from the user's cart stored in the session.
 
 session_start();
 

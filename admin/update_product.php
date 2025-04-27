@@ -1,12 +1,12 @@
-<!-- 
-  Emre Bozkurt, 400555259
-
-  Date created: 2025-04-15
-
-  Updates the existing product based on the passed input, which is taken from
-  the edit products modal form. The form details are passed via AJAX to this script.
--->
 <?php
+
+// Emre Bozkurt, 400555259
+
+// Date created: 2025-04-15
+
+// Updates the existing product based on the passed input, which is taken from
+// the edit products modal form. The form details are passed via AJAX to this script.
+
 // filepath: c:\xampp\htdocs\creationsbyaala\admin\update_product.php
 
 if (!isset($_SESSION)) {

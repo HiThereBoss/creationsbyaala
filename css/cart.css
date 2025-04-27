@@ -151,3 +151,45 @@ h2 {
     background-color: #ccc;
     cursor:default;
 }
+
+
+@media (max-width: 768px) {
+    #cart-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    #cart-left, #cart-right {
+        width: 100%;
+    }
+    .cart-item {
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+    }
+    .item-content {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .item-actions {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+    #order-summary {
+        width: 90%;
+    }
+    #order-summary h2 {
+        font-size: 20px;
+    }
+    #order-summary p {
+        font-size: 16px;
+    }
+    #order-summary button {
+        font-size: 14px;
+    }
+    .cart-item h3 {
+        font-size: 18px;
+    }
+
+}

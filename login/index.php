@@ -1,14 +1,14 @@
-<!-- 
-  Emre Bozkurt, 400555259
-
-  Date created: 2025-04-15
-
-  Accessibly by the nav bar if the user is not logged in.
-  This page allows the user to log in to their account.
-  It checks the credentials against the database and sets 
-  the session variables with verify.php.
--->
 <?php
+// Emre Bozkurt, 400555259
+
+// Date created: 2025-04-15
+
+// Accessibly by the nav bar if the user is not logged in.
+// This page allows the user to log in to their account.
+// It checks the credentials against the database and sets 
+// the session variables with verify.php.
+
+
 // Start the session
 session_start();
 

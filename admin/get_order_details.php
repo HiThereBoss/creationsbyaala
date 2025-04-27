@@ -1,12 +1,11 @@
-<!-- 
-  Emre Bozkurt, 400555259
-
-  Date created: 2025-04-15
-
-  Auxilary script to properly fetch order details from an order ID.
-  The associated Javascript file uses AJAX to call the script.
--->
 <?php
+
+// Emre Bozkurt, 400555259
+
+// Date created: 2025-04-15
+
+// Auxilary script to properly fetch order details from an order ID.
+// The associated Javascript file uses AJAX to call the script.
 
 session_start();
 

@@ -92,3 +92,28 @@ h2 {
 .receipt-button:hover {
     background-color: #72706e;
 }
+
+@media (max-width: 768px) {
+    #orders-container {
+        width: 100%;
+    }
+    .order-entry {
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+    }
+    .order-details, .order-items {
+        width: 100%;
+    }
+    .order-item {
+        flex-direction: column;
+        align-items: center;
+    }
+    .order-item .item-name, .order-item .item-meta {
+        text-align: center;
+    }
+    .receipt-button {
+        width: 80%;
+        margin: 10px auto;
+    }
+}

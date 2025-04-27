@@ -1,12 +1,12 @@
-<!-- 
-  Tiya Jathan, 400589788
-
-  Date created: 2025-04-12
-
-  Generates a copy of the receipt for printing purposes, with slightly
-  modified structure.
--->
 <?php
+
+// Tiya Jathan, 400589788
+
+// Date created: 2025-04-12
+
+// Generates a copy of the receipt for printing purposes, with slightly
+// modified structure.
+
 session_start();
 
 $ok = true;

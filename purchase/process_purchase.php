@@ -1,12 +1,12 @@
-<!-- 
-  Siddhi Upadhyaya, 400588513
-
-  Date created: 2025-03-15
-
-  This file contains the logic for processing the purchase of items in the cart.
-  It validates the input data, calculates the total price including tax and tip,
--->
 <?php
+
+// Siddhi Upadhyaya, 400588513
+
+// Date created: 2025-03-15
+
+// This file contains the logic for processing the purchase of items in the cart.
+// It validates the input data, calculates the total price including tax and tip,
+
 // Process the purchase form submission
 
 session_start();

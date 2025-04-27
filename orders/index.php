@@ -1,15 +1,12 @@
-<!-- 
-  Peter Wu, 400444595
-  Emre Bozkurt, 400555259
-
-  Date created: 2025-04-15
-
-  Accessible by the nav bar, this page shows the order history of the user.
-  It fetches the order history from the database and displays it in a 
-  user-friendly format. Each order item also has a button to redirect to the receipt 
-  for that order.
--->
 <?php
+
+// Emre Bozkurt, 400555259
+
+// Date created: 2025-02-15
+
+// Called upon through AJAX from the login page, it verifies the given
+// credentials against the database and sets the session variables.
+
 session_start();
 
 if (!isset($_SESSION['userid'])) {

@@ -1,13 +1,12 @@
-<!-- 
-  Emre Bozkurt, 400555259
 
-  Date created: 2025-04-15
-
-  Displays a list of all the orders in a table format.
-  The admin can view all details about the order, including all the products in it, 
-  buy accessing the modal form.
--->
 <?php
+// Emre Bozkurt, 400555259
+
+// Date created: 2025-04-15
+
+// Displays a list of all the orders in a table format.
+// The admin can view all details about the order, including all the products in it, 
+// buy accessing the modal form.
 
 if (!isset($_SESSION)) {
     session_start();

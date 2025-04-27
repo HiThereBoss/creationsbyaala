@@ -1,13 +1,13 @@
-<!-- 
-  Emre Bozkurt, 400555259
-
-  Date created: 2025-04-15
-
-  Displays a list of products in a table format, allowing the admin
-  to edit or delete products. A modal is used for editing product details, as
-  all of its fields can be displayed in the larger form.
--->
 <?php
+
+// Emre Bozkurt, 400555259
+// Sreyo Biswas, 400566085
+
+// Date created: 2025-04-15
+
+// Displays a list of products in a table format, allowing the admin
+// to edit or delete products. A modal is used for editing product details, as
+// all of its fields can be displayed in the larger form.
 
 if (!isset($_SESSION)) {
     session_start();
